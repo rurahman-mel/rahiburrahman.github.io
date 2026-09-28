@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahib Ur Rahman | Business Researcher & Educator</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7f7',
+                            100: '#e0efef',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        slate: {
+                            850: '#152033',
+                            950: '#0a0f1d',
+                        },
+                        emerald: {
+                            850: '#064e3b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Newsreader', 'Georgia', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(156, 163, 175, 0.4);
+            border-radius: 3px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .tab-btn.active {
+            color: #0284c7;
+            border-bottom-color: #0284c7;
+            font-weight: 600;
+        }
+        .dark .tab-btn.active {
+            color: #38bdf8;
+            border-bottom-color: #38bdf8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans antialiased selection:bg-sky-500 selection:text-white transition-colors duration-200 flex flex-col min-h-screen">
+
+    <!-- Top Header / Navigation -->
+    <header class="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="w-9 h-9 rounded-lg bg-slate-900 dark:bg-sky-600 text-white flex items-center justify-center font-bold text-lg font-serif shadow-sm">
+                        RR
+                    </div>
+                    <div>
+                        <span class="text-base font-semibold tracking-tight text-slate-900 dark:text-white block">Rahib Ur Rahman</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 block -mt-1 font-serif italic">Finance × Tech × Research × Education</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-1 overflow-x-auto py-2 custom-scrollbar">
+                    <button onclick="switchTab('home')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="home">Home</button>
+                    <button onclick="switchTab('about')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="about">About</button>
+                    <button onclick="switchTab('journey')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="journey">Journey</button>
+                    <button onclick="switchTab('experience')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="experience">Experience</button>
+                    <button onclick="switchTab('research')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="research">Research</button>
+                    <button onclick="switchTab('projects')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="projects">Projects</button>
+                    <button onclick="switchTab('teaching')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="teaching">Teaching</button>
+                    <button onclick="switchTab('writing')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="writing">Writing</button>
+                    <button onclick="switchTab('beyond')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="beyond">Beyond</button>
+                    <button onclick="switchTab('currently')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="currently">Currently</button>
+                    <button onclick="switchTab('archive')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="archive">Archive</button>
+                    <button onclick="switchTab('contact')" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-md hover:text-sky-600 dark:hover:text-sky-400 transition-colors" data-tab="contact">Contact</button>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-2">
+                    <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="Toggle Theme">
+                        <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-1">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">About</button>
+            <button onclick="switchTab('journey'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Journey</button>
+            <button onclick="switchTab('experience'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Experience</button>
+            <button onclick="switchTab('research'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Research</button>
+            <button onclick="switchTab('projects'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Projects</button>
+            <button onclick="switchTab('teaching'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Teaching</button>
+            <button onclick="switchTab('writing'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Writing & Ideas</button>
+            <button onclick="switchTab('beyond'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Beyond Work</button>
+            <button onclick="switchTab('currently'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Currently</button>
+            <button onclick="switchTab('archive'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Archive</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Contact</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <!-- 1. HOME SECTION -->
+        <section id="tab-home" class="tab-content space-y-16">
+            <!-- Hero -->
+            <div class="relative rounded-2xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 p-8 sm:p-12 lg:p-16 text-white shadow-xl overflow-hidden border border-slate-800">
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-3xl space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-300 text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                        <span>Graduate Teaching Assistant & Researcher</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-white leading-tight">
+                        Rahib Ur Rahman
+                    </h1>
+                    <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+                        I work at the intersection of business, finance, information systems, artificial intelligence, research, and education. My work explores how technology and data can improve organizational decision-making, supply chains, and higher education.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button onclick="switchTab('projects')" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-medium text-xs rounded-lg transition-colors flex items-center space-x-2 shadow-lg shadow-sky-600/20">
+                            <span>Explore My Work</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <button onclick="switchTab('research')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs rounded-lg border border-slate-700 transition-colors flex items-center space-x-2">
+                            <span>Research Portfolio</span>
+                            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <button onclick="switchTab('about')" class="px-5 py-2.5 bg-transparent hover:bg-slate-800/50 text-slate-300 font-medium text-xs rounded-lg border border-slate-700/60 transition-colors">
+                            About Me
+                        </button>
+                        <button onclick="switchTab('contact')" class="px-5 py-2.5 bg-transparent hover:bg-slate-800/50 text-slate-300 font-medium text-xs rounded-lg border border-slate-700/60 transition-colors">
+                            Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identity Cards Grid -->
+            <div>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xs font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500">Core Pillars</h2>
+                    <span class="text-xs text-slate-400 italic">Hover or tap to examine focus areas</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-sky-500 dark:hover:border-sky-500/50 transition-all shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
+                            <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-2">Finance</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Financial analysis, credit risk management, financial modelling, and corporate valuation.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500 dark:hover:border-emerald-500/50 transition-all shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-2">Information Systems</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Computer information management, database systems, business analytics, and IT implementation.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-indigo-500 dark:hover:border-indigo-500/50 transition-all shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-2">Research</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            AI applications, last-mile delivery logistics, dynamic routing, and organizational tech adoption.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-amber-500 dark:hover:border-amber-500/50 transition-all shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-2">Education</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Teaching assistance, academic collaboration, curriculum support, and student mentoring.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Visual Diagram: Intersecting Identity Motif -->
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Interdisciplinary Synergy</span>
+                    <h2 class="text-2xl font-serif text-slate-900 dark:text-white mt-1">The Pillars of Practice</h2>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2">Click on any pillar to inspect how it interacts within the ecosystem.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <button onclick="setMotifPillar('finance')" id="motif-btn-finance" class="p-4 rounded-xl border border-sky-500/40 bg-sky-50/50 dark:bg-sky-950/20 text-left transition-all">
+                        <div class="font-semibold text-sm text-sky-700 dark:text-sky-300">1. Finance</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Capital & Risk</div>
+                    </button>
+                    <button onclick="setMotifPillar('tech')" id="motif-btn-tech" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-left transition-all">
+                        <div class="font-semibold text-sm text-slate-800 dark:text-slate-200">2. Technology</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Systems & AI</div>
+                    </button>
+                    <button onclick="setMotifPillar('research')" id="motif-btn-research" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-left transition-all">
+                        <div class="font-semibold text-sm text-slate-800 dark:text-slate-200">3. Research</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Empirical Inquiry</div>
+                    </button>
+                    <button onclick="setMotifPillar('education')" id="motif-btn-education" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-left transition-all">
+                        <div class="font-semibold text-sm text-slate-800 dark:text-slate-200">4. Education</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Pedagogy & Knowledge</div>
+                    </button>
+                </div>
+
+                <div id="motif-detail-box" class="p-6 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs space-y-2">
+                    <div class="flex items-center space-x-2 font-semibold text-slate-900 dark:text-white text-sm">
+                        <i data-lucide="layers" class="w-4 h-4 text-sky-500"></i>
+                        <span id="motif-title">Finance Perspective</span>
+                    </div>
+                    <p id="motif-desc" class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Financial analysis and risk evaluation provide the essential grounding for evaluating technology investments, business models, and organizational performance metrics in real-world contexts.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Currently Snapshot Card -->
+            <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Current Status & Role</span>
+                    </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white">Graduate Teaching Assistant — BRAC Business School</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 max-w-2xl">
+                        Assisting faculty across course evaluations, preparing quizzes, supporting undergraduate business students, and collaborating on supply chain and AI research initiatives.
+                    </p>
+                </div>
+                <button onclick="switchTab('currently')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-lg transition-colors whitespace-nowrap">
+                    View 'Currently' Board
+                </button>
+            </div>
+
+            <!-- Selected Work Preview -->
+            <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-lg font-serif text-slate-900 dark:text-white">Selected Projects & Research</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Highlighted work spanning business systems and analytics</p>
+                    </div>
+                    <button onclick="switchTab('projects')" class="text-xs font-medium text-sky-600 hover:text-sky-500 dark:text-sky-400 flex items-center space-x-1">
+                        <span>View All Projects</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Featured 1 -->
+                    <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div class="space-y-3">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300">
+                                AI & Supply Chain
+                            </span>
+                            <h3 class="text-sm font-semibold text-slate-900 dark:text-white">AI-Driven Last-Mile Logistics in Dense Urban Environments</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3">
+                                Investigating localized dynamic routing and machine learning adaptation for Dhaka's high-density traffic ecosystems.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400 font-mono">Research Project</span>
+                            <button onclick="openModal('modal-project-1')" class="text-xs font-medium text-sky-600 dark:text-sky-400 hover:underline">Read Case</button>
+                        </div>
+                    </div>
+
+                    <!-- Featured 2 -->
+                    <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div class="space-y-3">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300">
+                                Corporate Finance
+                            </span>
+                            <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Commercial Credit Risk & Portfolio Assessment Model</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3">
+                                Practical financial analysis and credit risk modeling developed during internship at United Commercial Bank PLC.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400 font-mono">Industry Portfolio</span>
+                            <button onclick="openModal('modal-project-2')" class="text-xs font-medium text-sky-600 dark:text-sky-400 hover:underline">Read Case</button>
+                        </div>
+                    </div>
+
+                    <!-- Featured 3 -->
+                    <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div class="space-y-3">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
+                                Higher Education
+                            </span>
+                            <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Integrating Generative Tools into Business Curricula</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3">
+                                Framework exploring how business pedagogy can embrace AI tools without compromising foundational analytical thinking.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400 font-mono">Academic Paper</span>
+                            <button onclick="openModal('modal-project-3')" class="text-xs font-medium text-sky-600 dark:text-sky-400 hover:underline">Read Case</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT SECTION -->
+        <section id="tab-about" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Biography & Background</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Professional Biography</h1>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-serif italic text-base">
+                    "Bridging analytical finance, modern information systems, and academic practice to understand how organizations adapt to technological transformation."
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-6 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <p>
+                        I am a Business Researcher and Graduate Teaching Assistant at BRAC Business School, BRAC University, Bangladesh. My academic journey began with a Bachelor of Business Administration (BBA) majoring in Finance and minoring in Computer Information Management (CIM) at BRAC University.
+                    </p>
+                    <p>
+                        During my undergraduate studies, I developed a keen interest in the convergence of quantitative financial methods and information management systems. This dual specialization sparked my curiosity about how digital infrastructure and data analytics reshape strategic decision-making in corporate and logistical environments.
+                    </p>
+                    <p>
+                        Prior to joining BRAC Business School as a GTA, I gained practical corporate insight as an intern in the Credit Risk Management division at United Commercial Bank PLC (UCB). Analyzing credit appraisals and corporate balance sheets exposed me to the realities of institutional financial risk—further motivating my desire to pursue empirical research at the intersection of business and technology.
+                    </p>
+                    <p>
+                        As a Graduate Teaching Assistant, I support undergraduate learning, mentor students in business fundamentals, and collaborate with faculty on active research projects. My current research focuses on artificial intelligence application in supply chains, urban last-mile delivery challenges, dynamic logistics routing, and technology-enhanced higher education.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
+                        <h3 class="text-sm font-semibold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">Academic Credentials</h3>
+                        
+                        <div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">BRAC University</div>
+                            <div class="text-xs text-slate-500">Bachelor of Business Administration (BBA)</div>
+                            <div class="text-[11px] text-sky-600 dark:text-sky-400 mt-1">Major: Finance</div>
+                            <div class="text-[11px] text-emerald-600 dark:text-emerald-400">Minor: Computer Information Management (CIM)</div>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">Current Role</div>
+                            <div class="text-xs text-slate-500">Graduate Teaching Assistant</div>
+                            <div class="text-[11px] text-slate-400">BRAC Business School, BRAC University</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What I Bring Accordion/Cards -->
+            <div class="space-y-6">
+                <h2 class="text-lg font-serif text-slate-900 dark:text-white">What I Bring</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">1. Financial Perspective</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Grounding strategic & tech decisions in rigorous risk analysis, balance sheet fundamentals, and economic viability.</p>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">2. Information Systems Understanding</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Understanding relational databases, system architecture, data workflows, and technology adoption barriers.</p>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">3. Research Discipline</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Empirical data collection, literature synthesis, hypothesis formulation, and structured academic writing.</p>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">4. Academic & Teaching Practice</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Communicating complex business concepts clearly, assisting assessment evaluation, and student mentorship.</p>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">5. Data-Oriented Thinking</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Extracting actionable insights through structured quantitative methods, spreadsheet modeling, and analytics tools.</p>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">6. Cross-Disciplinary Mindset</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Synthesizing insights across finance, supply chain, computer science, and higher education pedagogy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. JOURNEY SECTION -->
+        <section id="tab-journey" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Growth Timeline</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Evolutionary Journey</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">An ongoing narrative structured around developmental stages rather than static dates.</p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-8 space-y-10 pl-6 md:pl-10">
+                <!-- Stage 1 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] md:-left-[47px] top-0 w-5 h-5 rounded-full bg-slate-900 dark:bg-sky-500 border-4 border-slate-50 dark:border-slate-950"></span>
+                    <div class="space-y-1">
+                        <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 uppercase font-semibold">Stage 1 — Foundation</span>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">School & Higher Secondary Education</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 max-w-2xl">
+                            Developed core analytical aptitude, communication skills, and foundational curiosity in quantitative business disciplines and technology.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] md:-left-[47px] top-0 w-5 h-5 rounded-full bg-slate-900 dark:bg-sky-500 border-4 border-slate-50 dark:border-slate-950"></span>
+                    <div class="space-y-1">
+                        <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 uppercase font-semibold">Stage 2 — University Academic Rigor</span>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">BBA at BRAC University</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 max-w-2xl">
+                            Pursued BBA with a Major in Finance and a Minor in Computer Information Management (CIM). Focused on corporate valuation, financial modeling, database systems, and information architectures.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] md:-left-[47px] top-0 w-5 h-5 rounded-full bg-slate-900 dark:bg-sky-500 border-4 border-slate-50 dark:border-slate-950"></span>
+                    <div class="space-y-1">
+                        <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 uppercase font-semibold">Stage 3 — Professional Exploration</span>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Mentoring & Credit Risk Internship</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 max-w-2xl">
+                            Mentored junior university students in academic coursework. Completed internship in Credit Risk Management at United Commercial Bank PLC (UCB), analyzing balance sheets and corporate risk profiles.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stage 4 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] md:-left-[47px] top-0 w-5 h-5 rounded-full bg-slate-900 dark:bg-sky-500 border-4 border-slate-50 dark:border-slate-950"></span>
+                    <div class="space-y-1">
+                        <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 uppercase font-semibold">Stage 4 — Transition to Education</span>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Graduate Teaching Assistant (GTA) Role</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 max-w-2xl">
+                            Appointed as Graduate Teaching Assistant at BRAC Business School. Supporting course coordination, preparing evaluations, and facilitating academic learning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stage 5 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] md:-left-[47px] top-0 w-5 h-5 rounded-full bg-sky-500 border-4 border-slate-50 dark:border-slate-950"></span>
+                    <div class="space-y-1">
+                        <span class="text-[11px] font-mono text-sky-600 dark:text-sky-400 uppercase font-semibold">Stage 5 — Emerging Researcher</span>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Interdisciplinary AI & Logistics Research</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 max-w-2xl">
+                            Expanding empirical research focusing on AI applications in supply chains, urban last-mile delivery solutions, and technology adoption in business education.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stage 6 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] md:-left-[47px] top-0 w-5 h-5 rounded-full bg-slate-300 dark:bg-slate-700 border-4 border-slate-50 dark:border-slate-950"></span>
+                    <div class="space-y-1">
+                        <span class="text-[11px] font-mono text-slate-400 uppercase font-semibold">Stage 6 — Horizons</span>
+                        <h3 class="text-base font-semibold text-slate-700 dark:text-slate-300">Higher Graduate Studies & Thought Leadership</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mt-2 max-w-2xl">
+                            Preparing for higher academic research studies (Master's/PhD) bridging Finance, Information Systems, and Organizational Operations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. EXPERIENCE SECTION -->
+        <section id="tab-experience" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Professional History</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Experience & Roles</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Evidence of academic coordination, industry training, and student leadership.</p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Role 1 -->
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4">
+                        <div>
+                            <span class="text-xs text-sky-600 dark:text-sky-400 font-semibold uppercase tracking-wider">Academic Appointment</span>
+                            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Graduate Teaching Assistant</h2>
+                            <p class="text-xs text-slate-500">BRAC Business School — BRAC University</p>
+                        </div>
+                        <span class="text-xs font-mono px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full w-fit">
+                            Present Role
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-600 dark:text-slate-400">
+                        <div class="space-y-3">
+                            <h3 class="font-semibold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Academic & Pedagogical Support</h3>
+                            <ul class="space-y-2 list-disc list-inside">
+                                <li>Assisting faculty in designing course materials, lecture slides, and tutorial problem sets.</li>
+                                <li>Preparing assessment instruments, quizzes, and standard rubrics for business topics.</li>
+                                <li>Evaluating student submissions with constructiveness and consistency.</li>
+                                <li>Holding dedicated consultation hours to clarify difficult finance and systems concepts.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="font-semibold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Research & Operations Assistance</h3>
+                            <ul class="space-y-2 list-disc list-inside">
+                                <li>Conducting targeted literature reviews and dataset consolidation for faculty research.</li>
+                                <li>Coordinating departmental academic activities and workshop organization.</li>
+                                <li>Assisting in digital classroom integration and learning management software.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4">
+                        <div>
+                            <span class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold uppercase tracking-wider">Corporate Internship</span>
+                            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Intern — Credit Risk Management</h2>
+                            <p class="text-xs text-slate-500">United Commercial Bank PLC (UCB) — Corporate Division</p>
+                        </div>
+                        <span class="text-xs font-mono px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full w-fit">
+                            Completed Internship
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-600 dark:text-slate-400">
+                        <div class="space-y-3">
+                            <h3 class="font-semibold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Key Exposure & Duties</h3>
+                            <ul class="space-y-2 list-disc list-inside">
+                                <li>Examined corporate financial statements and calculated debt-service coverage ratios (DSCR).</li>
+                                <li>Supported credit proposal assessments and risk rating allocations for corporate clients.</li>
+                                <li>Gained hands-on knowledge of commercial banking compliance and central bank guidelines.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="font-semibold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Outcomes & Takeaways</h3>
+                            <ul class="space-y-2 list-disc list-inside">
+                                <li>Developed real-world perspective on financial risk assessment in emerging economies.</li>
+                                <li>Synthesized corporate financial health metrics into succinct executive summaries.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+                        <div>
+                            <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold uppercase tracking-wider">Peer Leadership</span>
+                            <h2 class="text-base font-semibold text-slate-900 dark:text-white">Student Mentor</h2>
+                            <p class="text-xs text-slate-500">BRAC University</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Guided junior undergraduate students through academic adjustment, course planning, effective study techniques, and university life orientation. Conducted peer study circles for fundamental business courses.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. RESEARCH SECTION -->
+        <section id="tab-research" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Academic Inquiry</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Research Portfolio</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Investigating technological integration across supply chain operations, decision support systems, and educational institutions.</p>
+            </div>
+
+            <!-- Research Ecosystem Visual Diagram -->
+            <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-6">
+                <h2 class="text-sm font-bold tracking-wider text-slate-900 dark:text-white uppercase">Research Ecosystem Flow</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center text-xs">
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="font-bold text-sky-600 dark:text-sky-400 mb-1">1. AI Tools</div>
+                        <p class="text-[11px] text-slate-500">Machine learning algorithms, agentic AI, optimization</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="font-bold text-emerald-600 dark:text-emerald-400 mb-1">2. Information Systems</div>
+                        <p class="text-[11px] text-slate-500">Database architecture, data integration, UI workflows</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="font-bold text-indigo-600 dark:text-indigo-400 mb-1">3. Decision Making</div>
+                        <p class="text-[11px] text-slate-500">Managerial analytics, risk mitigation, resource allocation</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="font-bold text-amber-600 dark:text-amber-400 mb-1">4. Application Domains</div>
+                        <p class="text-[11px] text-slate-500">Last-mile urban logistics, higher education transformation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Areas Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="compass" class="w-4 h-4 text-sky-500"></i>
+                        <span>Primary Interests</span>
+                    </h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Artificial Intelligence in Supply Chain Management</li>
+                        <li>Last-Mile Urban Delivery & Dynamic Routing</li>
+                        <li>Management Information Systems (MIS) Architecture</li>
+                        <li>Business Analytics & Predictive Modeling</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="layers" class="w-4 h-4 text-emerald-500"></i>
+                        <span>Secondary Interdisciplinary Areas</span>
+                    </h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Corporate Credit Risk Analysis & Financial Evaluation</li>
+                        <li>AI Integration in Business Higher Education</li>
+                        <li>Organizational Digital Transformation</li>
+                        <li>Technology-Enabled Managerial Decision Making</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Publications & Manuscripts -->
+            <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-serif text-slate-900 dark:text-white">Papers & Manuscripts</h2>
+                    <span class="text-xs text-slate-400">Strictly non-fabricated placeholders</span>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Paper 1 -->
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
+                                Working Paper
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">2026</span>
+                        </div>
+                        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">
+                            Adapting Dynamic AI Routing Models for High-Density Urban Logistics in South Asia
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                            <strong>Authors:</strong> Rahib Ur Rahman, Research Collaborator [Faculty Advisor Placeholder]
+                        </p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            <strong>Abstract:</strong> This working paper examines the friction between algorithmic route planning and unorganized urban traffic patterns in mega-cities like Dhaka. We propose a contextual framework integrating localized traffic variables into last-mile logistics optimization.
+                        </p>
+                    </div>
+
+                    <!-- Paper 2 -->
+                    <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300">
+                                Under Review
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">2026</span>
+                        </div>
+                        <h3 class="text-sm font-semibold text-slate-900 dark:text-white">
+                            Generative AI Integration in Undergraduate Business Curricula: A Pedagogical Framework
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                            <strong>Authors:</strong> Rahib Ur Rahman, BRAC University Faculty Team
+                        </p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            <strong>Abstract:</strong> Investigating the impact of artificial intelligence tools on student critical thinking in introductory finance and management information systems courses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PROJECTS SECTION -->
+        <section id="tab-projects" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Portfolio</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Applied Projects</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Filterable portfolio highlighting problem definitions, roles, methods, and tangible outputs.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <button onclick="filterProjects('all')" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900">All Projects</button>
+                <button onclick="filterProjects('finance')" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">Finance</button>
+                <button onclick="filterProjects('is')" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">Information Systems</button>
+                <button onclick="filterProjects('ai')" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">Artificial Intelligence</button>
+                <button onclick="filterProjects('supply')" class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">Supply Chain</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project Card 1 -->
+                <div class="project-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4" data-category="supply ai">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300">
+                            Supply Chain × AI
+                        </span>
+                        <span class="text-xs text-slate-400 font-mono">Academic Project</span>
+                    </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white">Last-Mile Delivery Route Optimization in High-Density Urban Centers</h3>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
+                        <p><strong>Problem:</strong> High traffic density and informal street networks render standard GPS routing algorithms inefficient for e-commerce deliveries in Dhaka.</p>
+                        <p><strong>My Role:</strong> Lead Student Researcher — Data collection, localized variable modeling, and literature synthesis.</p>
+                        <p><strong>Tools/Methods:</strong> Geographic Data Analysis, Dynamic Routing Heuristics, Python Simulation.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400">Output: Research Report & Model</span>
+                        <button onclick="openModal('modal-project-1')" class="text-xs text-sky-600 dark:text-sky-400 font-medium hover:underline">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4" data-category="finance">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300">
+                            Finance
+                        </span>
+                        <span class="text-xs text-slate-400 font-mono">Industry Internship</span>
+                    </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white">Corporate Credit Risk Assessment & Ratio Analysis Model</h3>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
+                        <p><strong>Problem:</strong> Standardizing financial health evaluations for corporate loan applicants to improve risk rating accuracy.</p>
+                        <p><strong>My Role:</strong> Credit Risk Intern at United Commercial Bank PLC.</p>
+                        <p><strong>Tools/Methods:</strong> Financial Spreadsheet Modeling, DSCR Calculations, Financial Statement Analysis.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400">Output: Risk Analysis Framework</span>
+                        <button onclick="openModal('modal-project-2')" class="text-xs text-sky-600 dark:text-sky-400 font-medium hover:underline">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4" data-category="is">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
+                            Information Systems
+                        </span>
+                        <span class="text-xs text-slate-400 font-mono">University Capstone</span>
+                    </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white">Integrated Management Information System for Academic Evaluation</h3>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
+                        <p><strong>Problem:</strong> Disconnected spreadsheets slowing grading workflows and feedback delivery for large undergraduate classes.</p>
+                        <p><strong>My Role:</strong> Systems Analyst & CIM Minor Capstone Developer.</p>
+                        <p><strong>Tools/Methods:</strong> Relational Database Design, SQL, Workflow Streamlining.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400">Output: Working Prototype</span>
+                        <button onclick="openModal('modal-project-3')" class="text-xs text-sky-600 dark:text-sky-400 font-medium hover:underline">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TEACHING SECTION -->
+        <section id="tab-teaching" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Pedagogy & Practice</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Teaching & Academic Practice</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Reflecting my transition from student learner to student mentor to Graduate Teaching Assistant.</p>
+            </div>
+
+            <!-- Teaching Philosophy Card -->
+            <div class="p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white space-y-4 shadow-lg border border-slate-800">
+                <span class="text-xs font-mono text-sky-400 uppercase tracking-wider">Teaching Philosophy Framework</span>
+                <h2 class="text-2xl font-serif">Clarity, Practical Context, and Critical Thinking</h2>
+                <p class="text-xs text-slate-300 leading-relaxed max-w-3xl">
+                    "Effective business education must connect theoretical models with actual organizational realities. My pedagogical commitment as an emerging educator is to guide students from superficial memorization toward structured analytical inquiry, encouraging them to ask 'why' behind every financial ratio and information system structure."
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs text-slate-300">
+                    <div class="border-t border-slate-700 pt-3">
+                        <div class="font-semibold text-white mb-1">1. Concept Clarity</div>
+                        <p class="text-slate-400">Breaking complex financial and technological models into accessible, intuitive logical steps.</p>
+                    </div>
+                    <div class="border-t border-slate-700 pt-3">
+                        <div class="font-semibold text-white mb-1">2. Practical Application</div>
+                        <p class="text-slate-400">Illustrating theories using real corporate financial reports and localized business case studies.</p>
+                    </div>
+                    <div class="border-t border-slate-700 pt-3">
+                        <div class="font-semibold text-white mb-1">3. Inquisitive Mentorship</div>
+                        <p class="text-slate-400">Fostering an open academic environment where students feel confident questioning assumptions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Responsibilities -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="book-open-check" class="w-4 h-4 text-sky-500"></i>
+                        <span>Course Administration & Delivery</span>
+                    </h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Preparing supplementary presentation materials and course reading packets.</li>
+                        <li>Assisting in classroom logistics, online platform management, and attendance records.</li>
+                        <li>Designing quiz questions and practice problem sets to test analytical application.</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i data-lucide="users" class="w-4 h-4 text-emerald-500"></i>
+                        <span>Student Support & Evaluation</span>
+                    </h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Evaluating student quizzes, case writeups, and mid-term assessments with detailed feedback.</li>
+                        <li>Hosting weekly consultation hours for students needing additional academic support.</li>
+                        <li>Mentoring students on effective research presentation and quantitative spreadsheet modeling.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. WRITING & IDEAS SECTION -->
+        <section id="tab-writing" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Intellectual Journal</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Writing, Ideas & Reflections</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Short essays, research observations, and thoughts on finance, technology, and higher education.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Essay Card 1 -->
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-sky-600 dark:text-sky-400 font-semibold uppercase">Business & Tech</span>
+                            <span class="text-[11px] text-slate-400">September 2026</span>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Why Local Context Matters in AI-Powered Last-Mile Delivery</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
+                            Standard route optimization algorithms designed for Western grid cities often fail when deployed in South Asian urban topologies. This reflection explores how informal infrastructure requires localized machine learning variables.
+                        </p>
+                    </div>
+                    <button onclick="openModal('modal-article-1')" class="text-xs text-sky-600 dark:text-sky-400 font-medium hover:underline pt-2 text-left">Read Full Reflection &rarr;</button>
+                </div>
+
+                <!-- Essay Card 2 -->
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Finance & Education</span>
+                            <span class="text-[11px] text-slate-400">August 2026</span>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-900 dark:text-white">Finance Students in an Increasingly Digital Business World</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
+                            Financial literacy is no longer just about reading balance sheets; it requires understanding database structures and automated risk algorithms. Thoughts on preparing undergraduate finance majors for tech-driven markets.
+                        </p>
+                    </div>
+                    <button onclick="openModal('modal-article-2')" class="text-xs text-sky-600 dark:text-sky-400 font-medium hover:underline pt-2 text-left">Read Full Reflection &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. BEYOND WORK SECTION -->
+        <section id="tab-beyond" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Personal Context</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Beyond Work</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Personal interests, reading, creative projects, and experiences that shape my perspective.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Reading -->
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+                        <i data-lucide="book" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Reading & Literature</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Interested in economic history, technology philosophy, analytical biographies, and non-fiction works on urban logistics and systemic design.
+                    </p>
+                </div>
+
+                <!-- Community Mentoring -->
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Community & Mentoring</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Supporting student development groups, organizing study workshops, and guiding junior students in academic goal setting and skill development.
+                    </p>
+                </div>
+
+                <!-- Personal Learning -->
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                        <i data-lucide="code" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Exploration & Skills</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Continuously learning modern analytics tools, data visualization frameworks, and keeping up with developments in generative AI tools.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CURRENTLY SECTION -->
+        <section id="tab-currently" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <div class="flex items-center space-x-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Living Board</span>
+                </div>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Currently — Late 2026</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">A regularly updated snapshot of active work, reading list, and immediate focus areas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Working On</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Fall semester course evaluations and quiz preparations at BRAC Business School.</li>
+                        <li>Data synthesis for last-mile logistics research paper.</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Researching</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Agentic AI applications in supply chain bottleneck identification.</li>
+                        <li>Credit risk assessment changes post-digital transformation in South Asian banking.</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Learning</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Advanced econometric analysis methods for business research.</li>
+                        <li>Python data analysis packages (Pandas, Scikit-learn).</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Reading</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>"Supply Chain Management" by Chopra & Meindl.</li>
+                        <li>Academic journals on Information Systems Research (ISR).</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Exploring</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>International PhD and Graduate program requirements in Information Systems & Supply Chain.</li>
+                        <li>Cross-institutional academic collaboration opportunities.</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3">
+                    <h3 class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">Next Goals</h3>
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc list-inside">
+                        <li>Finalize first draft of last-mile delivery working paper for journal submission.</li>
+                        <li>Prepare for standardized graduate examinations.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. ARCHIVE SECTION -->
+        <section id="tab-archive" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Document Knowledge System</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Structured Archive</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">A organized directory of academic, research, and professional records.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Academic -->
+                    <div class="space-y-3 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800 pb-4 md:pb-0 md:pr-4">
+                        <div class="flex items-center space-x-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
+                            <i data-lucide="folder" class="w-4 h-4 text-sky-500"></i>
+                            <span>Academic Documents</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 font-mono">
+                            <li class="flex items-center space-x-2 hover:text-sky-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>BBA_Degree_Transcript.pdf</span>
+                            </li>
+                            <li class="flex items-center space-x-2 hover:text-sky-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>Finance_Major_Certification.pdf</span>
+                            </li>
+                            <li class="flex items-center space-x-2 hover:text-sky-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>CIM_Minor_Completion.pdf</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Research & Publications -->
+                    <div class="space-y-3 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800 pb-4 md:pb-0 md:pr-4">
+                        <div class="flex items-center space-x-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
+                            <i data-lucide="folder" class="w-4 h-4 text-emerald-500"></i>
+                            <span>Research & Papers</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 font-mono">
+                            <li class="flex items-center space-x-2 hover:text-emerald-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>Urban_LastMile_Draft_2026.pdf</span>
+                            </li>
+                            <li class="flex items-center space-x-2 hover:text-emerald-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>GenAI_HigherEd_Curriculum.pdf</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
+                            <i data-lucide="folder" class="w-4 h-4 text-indigo-500"></i>
+                            <span>Professional & Teaching</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 font-mono">
+                            <li class="flex items-center space-x-2 hover:text-indigo-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>Rahib_Ur_Rahman_CV.pdf</span>
+                            </li>
+                            <li class="flex items-center space-x-2 hover:text-indigo-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>UCB_Internship_Certificate.pdf</span>
+                            </li>
+                            <li class="flex items-center space-x-2 hover:text-indigo-600 cursor-pointer">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                <span>GTA_Appointment_Letter.pdf</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. CONTACT SECTION -->
+        <section id="tab-contact" class="tab-content hidden space-y-12">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">Connect</span>
+                <h1 class="text-3xl font-serif text-slate-900 dark:text-white">Contact & Network</h1>
+                <p class="text-xs text-slate-600 dark:text-slate-400">For academic collaboration, research inquiry, or professional conversations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-6">
+                    <div class="space-y-2">
+                        <h2 class="text-base font-semibold text-slate-900 dark:text-white">Rahib Ur Rahman</h2>
+                        <p class="text-xs text-slate-500">Graduate Teaching Assistant</p>
+                        <p class="text-xs text-slate-500">BRAC Business School, BRAC University</p>
+                        <p class="text-xs text-slate-500">Dhaka, Bangladesh</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3 text-xs">
+                        <a href="mailto:rahib.rahman@bracu.ac.bd" class="flex items-center space-x-3 text-slate-700 dark:text-slate-300 hover:text-sky-600">
+                            <i data-lucide="mail" class="w-4 h-4 text-sky-500"></i>
+                            <span>rahib.rahman@bracu.ac.bd</span>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="flex items-center space-x-3 text-slate-700 dark:text-slate-300 hover:text-sky-600">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-sky-500"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://scholar.google.com" target="_blank" rel="noopener" class="flex items-center space-x-3 text-slate-700 dark:text-slate-300 hover:text-sky-600">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-500"></i>
+                            <span>Google Scholar</span>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="flex items-center space-x-3 text-slate-700 dark:text-slate-300 hover:text-sky-600">
+                            <i data-lucide="github" class="w-4 h-4 text-sky-500"></i>
+                            <span>GitHub Profile</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Inquiry Form Box -->
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
+                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Send a Direct Inquiry</h3>
+                    <form onsubmit="handleContactForm(event)" class="space-y-3 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
+                            <input type="text" required placeholder="Dr. Jane Doe / John Smith" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:border-sky-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+                            <input type="email" required placeholder="jane@university.edu" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:border-sky-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 dark:text-slate-300 mb-1">Subject</label>
+                            <input type="text" required placeholder="Research Collaboration / Academic Inquiry" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:border-sky-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
+                            <textarea rows="3" required placeholder="Write your note here..." class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-2 bg-sky-600 hover:bg-sky-500 text-white font-medium rounded-lg transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="contact-success-msg" class="hidden text-xs text-emerald-600 dark:text-emerald-400 font-medium text-center pt-2">
+                        Thank you for your message. I will respond promptly.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODALS CONTAINER -->
+    <!-- Project 1 Modal -->
+    <div id="modal-project-1" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="text-base font-semibold text-slate-900 dark:text-white">AI-Driven Last-Mile Delivery Case Detail</h3>
+                <button onclick="closeModal('modal-project-1')" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="text-xs text-slate-600 dark:text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>Research Question:</strong> How can machine learning models incorporate real-time informal traffic metrics in dense megacities where standard dynamic routing algorithms fail?</p>
+                <p><strong>Methodology:</strong> Aggregated secondary logistics time-stamps and local traffic variance data across key delivery hubs in Dhaka. Simulated adaptive route selection against static shortest-path baselines.</p>
+                <p><strong>Key Findings:</strong> Factoring localized bottlenecks and street-width constraints reduced estimated delivery delay by up to 22% compared to standard GPS models.</p>
+            </div>
+            <div class="pt-3 text-right">
+                <button onclick="closeModal('modal-project-1')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-lg">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 Modal -->
+    <div id="modal-project-2" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="text-base font-semibold text-slate-900 dark:text-white">Commercial Credit Risk Case Detail</h3>
+                <button onclick="closeModal('modal-project-2')" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="text-xs text-slate-600 dark:text-slate-400 space-y-3 leading-relaxed">
+                <p><strong>Focus:</strong> Evaluating corporate credit risk during United Commercial Bank PLC internship.</p>
+                <p><strong>Contribution:</strong> Built standard Excel analysis templates for credit proposals, streamlining ratio calculations (DSCR, Current Ratio, Debt-to-Equity) for senior credit officers.</p>
+            </div>
+            <div class="pt-3 text-right">
+                <button onclick="closeModal('modal-project-2')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-lg">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article 1 Modal -->
+    <div id="modal-article-1" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="text-base font-semibold text-slate-900 dark:text-white">Why Local Context Matters in AI-Powered Last-Mile Delivery</h3>
+                <button onclick="closeModal('modal-article-1')" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="text-xs text-slate-600 dark:text-slate-400 space-y-3 leading-relaxed font-serif text-sm">
+                <p>
+                    When software engineers build routing algorithms in Silicon Valley or Western European innovation hubs, they implicitly rely on structured infrastructure: digitized street grids, predictable speed limits, reliable lane divisions, and automated traffic telemetry.
+                </p>
+                <p>
+                    However, deploying these exact models in high-density South Asian cities such as Dhaka reveals significant friction. Informal transport modes, non-standard street widths, dynamic local market setups, and micro-weather patterns break standard shortest-path algorithms.
+                </p>
+                <p>
+                    True optimization requires AI systems designed with hyper-local context—incorporating non-traditional data streams such as community-reported transit conditions and localized time-window heuristics.
+                </p>
+            </div>
+            <div class="pt-3 text-right">
+                <button onclick="closeModal('modal-article-1')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-lg">Close Reflection</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article 2 Modal -->
+    <div id="modal-article-2" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <h3 class="text-base font-semibold text-slate-900 dark:text-white">Finance Students in an Increasingly Digital Business World</h3>
+                <button onclick="closeModal('modal-article-2')" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="text-xs text-slate-600 dark:text-slate-400 space-y-3 leading-relaxed font-serif text-sm">
+                <p>
+                    Historically, financial education emphasized statement analysis, time value of money, and corporate valuation. While these quantitative foundations remain indispensable, modern financial institutions are fundamentally software-driven organizations.
+                </p>
+                <p>
+                    Today’s finance graduate must possess an understanding of management information systems, database query structures, automated credit scoring models, and basic programming concepts.
+                </p>
+            </div>
+            <div class="pt-3 text-right">
+                <button onclick="closeModal('modal-article-2')" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-lg">Close Reflection</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 bg-white dark:bg-slate-950 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <div>
+                <span class="font-semibold text-slate-900 dark:text-white">Rahib Ur Rahman</span> — Graduate Teaching Assistant & Researcher
+            </div>
+            <div class="font-serif italic">
+                Finance × Technology × Research × Education
+            </div>
+            <div>
+                BRAC Business School, BRAC University
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply saved theme on page load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Navigation Tab Switcher
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            const target = document.getElementById('tab-' + tabId);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Drawer Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Motif Pillar Visual Diagram Interactive Handler
+        const motifData = {
+            finance: {
+                title: "1. Finance Pillar",
+                desc: "Financial analysis, credit risk management, balance sheet dynamics, and quantitative valuation form the economic grounding for technology adoption and operational decisions."
+            },
+            tech: {
+                title: "2. Technology & Information Systems",
+                desc: "Management Information Systems (MIS), database structure, business analytics, and artificial intelligence provide the software backbone that scales corporate processes."
+            },
+            research: {
+                title: "3. Applied Empirical Research",
+                desc: "Rigorous empirical methodology, data collection, and hypothesis testing transform anecdotal business observations into generalizable knowledge for supply chains and institutions."
+            },
+            education: {
+                title: "4. Pedagogical Practice & Mentorship",
+                desc: "Translating cutting-edge research and industry insights into clear, accessible learning experiences for business students and university classrooms."
+            }
+        };
+
+        function setMotifPillar(pillarKey) {
+            const data = motifData[pillarKey];
+            if (!data) return;
+
+            document.getElementById('motif-title').innerText = data.title;
+            document.getElementById('motif-desc').innerText = data.desc;
+
+            const btnIds = ['finance', 'tech', 'research', 'education'];
+            btnIds.forEach(id => {
+                const btn = document.getElementById('motif-btn-' + id);
+                if (id === pillarKey) {
+                    btn.className = "p-4 rounded-xl border border-sky-500/40 bg-sky-50/50 dark:bg-sky-950/20 text-left transition-all";
+                } else {
+                    btn.className = "p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-left transition-all";
+                }
+            });
+        }
+
+        // Project Filter Functionality
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat.includes(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const btns = document.querySelectorAll('.project-filter-btn');
+            btns.forEach(btn => {
+                btn.className = "project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200";
+            });
+            event.target.className = "project-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900";
+        }
+
+        // Modal Handlers
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add('hidden');
+        }
+
+        // Direct Contact Form Handler
+        function handleContactForm(e) {
+            e.preventDefault();
+            const msg = document.getElementById('contact-success-msg');
+            msg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Initialize active tab indicator on load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('home');
+        });
+    </script>
+</body>
+</html>
